@@ -1,0 +1,1 @@
+﻿Server=MARK\SQLEXPRESS;Database=buildhaus;User Id=sa;Password=Sldd140124;MultipleActiveResultSets=true;Asynchronous Processing=True;

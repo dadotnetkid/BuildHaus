@@ -16,7 +16,7 @@ namespace Models.Repository
 
         public UnitOfWork()
         {
-            this.context = new ModelDb(); // ModelDb.Create(DataSource);
+            this.context = ModelDb.Create();
 
         }
 
@@ -35,6 +35,7 @@ namespace Models.Repository
         {
             this.context.Configuration.LazyLoadingEnabled = lazyLoadingEnabled;
             this.context.Configuration.ProxyCreationEnabled = proxyCreationEnabled;
+            this.context = ModelDb.Create();
         }
         public static string DataSource;
 

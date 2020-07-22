@@ -8,5 +8,6 @@ namespace Models
 {
     public class DataSource
     {
+        public static string ConnectionString;
     }
 }

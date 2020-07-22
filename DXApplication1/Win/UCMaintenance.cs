@@ -85,6 +85,17 @@ namespace Win
                     if (MessageBox.Show("Do you want to submit this?", "Submit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         return;
                     UnitOfWork unitOfWork = new UnitOfWork();
+                    if (!unitOfWork.UserRolesRepo.Fetch(x => x.Name == item.UserLevel).Any())
+                    {
+                        unitOfWork.UserRolesRepo.Insert(new UserRoles()
+                        {
+                            Name = item.UserLevel,
+                            Id = Guid.NewGuid().ToString()
+
+                        });
+                        unitOfWork.Save();
+                        unitOfWork = new UnitOfWork();
+                    }
                     if (string.IsNullOrEmpty(item.Id))
                     {
                         var user = new Users()
@@ -101,22 +112,24 @@ namespace Win
                         if (!string.IsNullOrEmpty(item.Password))
                             user.PasswordHash = userManager.PasswordHasher.HashPassword(item.Password ?? "");
 
+                        user.UserRoles.Add(unitOfWork.UserRolesRepo.Find(x => x.Name == item.UserLevel));
                         unitOfWork.UsersRepo.Insert(user);
                     }
                     else
                     {
-                        var user = new Users()
-                        {
-                            Id = item.Id,
-                            UserName = item.UserName,
-                            FirstName = item.FirstName ?? "",
-                            MiddleName = item.MiddleName ?? "",
-                            LastName = item.LastName ?? "",
-                            Email = item.UserName,
-                        };
+
+
+                        unitOfWork = new UnitOfWork();
+                        var _user = unitOfWork.UsersRepo.Find(x => x.Id == item.Id, includeProperties: "UserRoles");
+                        _user.UserRoles.Add(unitOfWork.UserRolesRepo.Find(x => x.Name == item.UserLevel));
                         if (!string.IsNullOrEmpty(item.Password))
-                            user.PasswordHash = userManager.PasswordHasher.HashPassword(item.Password ?? "");
-                        unitOfWork.UsersRepo.Update(user);
+                            _user.PasswordHash = userManager.PasswordHasher.HashPassword(item.Password ?? "");
+                        _user.Id = item.Id;
+                        _user.UserName = item.UserName;
+                        _user.FirstName = item.FirstName ?? "";
+                        _user.MiddleName = item.MiddleName ?? "";
+                        _user.LastName = item.LastName ?? "";
+                        _user.Email = item.UserName;
                     }
                     unitOfWork.Save();
                     Init();

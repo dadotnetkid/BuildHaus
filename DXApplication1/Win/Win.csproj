@@ -16,18 +16,21 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>D:\HostingSpaces\clickonce\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <InstallUrl>http://localhost/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.htm</WebPage>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -114,10 +117,10 @@
     <Compile Include="Itms\frmAddEditItems.Designer.cs">
       <DependentUpon>frmAddEditItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="Itms\UCItems.cs">
+    <Compile Include="UCItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Itms\UCItems.Designer.cs">
+    <Compile Include="UCItems.Designer.cs">
       <DependentUpon>UCItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
@@ -139,6 +142,12 @@
     </Compile>
     <Compile Include="UCCustomers.Designer.cs">
       <DependentUpon>UCCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCDashboard.Designer.cs">
+      <DependentUpon>UCDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="UCInventory.cs">
       <SubType>UserControl</SubType>
@@ -170,7 +179,7 @@
     <EmbeddedResource Include="Itms\frmAddEditItems.resx">
       <DependentUpon>frmAddEditItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Itms\UCItems.resx">
+    <EmbeddedResource Include="UCItems.resx">
       <DependentUpon>UCItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
@@ -192,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCCustomers.resx">
       <DependentUpon>UCCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCDashboard.resx">
+      <DependentUpon>UCDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventory.resx">
       <DependentUpon>UCInventory.cs</DependentUpon>
@@ -226,7 +238,14 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="connectionString.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="inventory.ico" />
+    <None Include="Resources\add_32x32.png" />
+    <None Include="Resources\bosaleitem_32x32.png" />
+    <None Include="Resources\zoom2_32x32.png" />
+    <None Include="Resources\salesanalysis_32x32.png" />
     <None Include="Resources\inventory.png" />
     <None Include="Resources\inventory2.png" />
   </ItemGroup>

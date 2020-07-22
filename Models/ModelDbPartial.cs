@@ -15,7 +15,7 @@ namespace Models
         }
         public static ModelDb Create()
         {
-            return new ModelDb();
+            return ModelDb.Create(Models.DataSource.ConnectionString);
         }
         public static ModelDb Create(string providerConnectionString)
         {
@@ -31,9 +31,11 @@ namespace Models
 
             return new ModelDb(entityBuilder.ConnectionString);
         }
-        public static void SetConnection(string connection,string userName,string password)
+
+
+        public static void SetConnection(string connection, string userName, string password)
         {
-           
+
         }
     }
 }

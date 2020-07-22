@@ -33,14 +33,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.btnConfig = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMaintenance = new DevExpress.XtraEditors.SimpleButton();
             this.btnSales = new DevExpress.XtraEditors.SimpleButton();
             this.btnCustomer = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSupplier = new DevExpress.XtraEditors.SimpleButton();
             this.btnCategories = new DevExpress.XtraEditors.SimpleButton();
             this.btnInventory = new DevExpress.XtraEditors.SimpleButton();
             this.btnItems = new DevExpress.XtraEditors.SimpleButton();
             this.btnDashboard = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMaintenance = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSupplier = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.pnlSideBar.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +80,7 @@
             // pnlSideBar
             // 
             this.pnlSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.pnlSideBar.Controls.Add(this.btnConfig);
             this.pnlSideBar.Controls.Add(this.btnMaintenance);
             this.pnlSideBar.Controls.Add(this.btnSales);
             this.pnlSideBar.Controls.Add(this.btnCustomer);
@@ -93,6 +95,48 @@
             this.pnlSideBar.Name = "pnlSideBar";
             this.pnlSideBar.Size = new System.Drawing.Size(240, 502);
             this.pnlSideBar.TabIndex = 0;
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.btnConfig.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnConfig.Appearance.Options.UseBackColor = true;
+            this.btnConfig.Appearance.Options.UseBorderColor = true;
+            this.btnConfig.Appearance.Options.UseFont = true;
+            this.btnConfig.Appearance.Options.UseForeColor = true;
+            this.btnConfig.Appearance.Options.UseTextOptions = true;
+            this.btnConfig.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnConfig.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.ImageOptions.Image")));
+            this.btnConfig.Location = new System.Drawing.Point(0, 424);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(240, 53);
+            this.btnConfig.TabIndex = 8;
+            this.btnConfig.Text = "Configurations";
+            this.btnConfig.Visible = false;
+            // 
+            // btnMaintenance
+            // 
+            this.btnMaintenance.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.btnMaintenance.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintenance.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnMaintenance.Appearance.Options.UseBackColor = true;
+            this.btnMaintenance.Appearance.Options.UseBorderColor = true;
+            this.btnMaintenance.Appearance.Options.UseFont = true;
+            this.btnMaintenance.Appearance.Options.UseForeColor = true;
+            this.btnMaintenance.Appearance.Options.UseTextOptions = true;
+            this.btnMaintenance.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnMaintenance.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMaintenance.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMaintenance.ImageOptions.Image")));
+            this.btnMaintenance.Location = new System.Drawing.Point(0, 371);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(240, 53);
+            this.btnMaintenance.TabIndex = 6;
+            this.btnMaintenance.Text = "User";
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
             // 
             // btnSales
             // 
@@ -135,6 +179,27 @@
             this.btnCustomer.TabIndex = 3;
             this.btnCustomer.Text = "Customers";
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
+            // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.btnSupplier.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupplier.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnSupplier.Appearance.Options.UseBackColor = true;
+            this.btnSupplier.Appearance.Options.UseBorderColor = true;
+            this.btnSupplier.Appearance.Options.UseFont = true;
+            this.btnSupplier.Appearance.Options.UseForeColor = true;
+            this.btnSupplier.Appearance.Options.UseTextOptions = true;
+            this.btnSupplier.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnSupplier.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSupplier.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.ImageOptions.Image")));
+            this.btnSupplier.Location = new System.Drawing.Point(0, 212);
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.Size = new System.Drawing.Size(240, 53);
+            this.btnSupplier.TabIndex = 7;
+            this.btnSupplier.Text = "Suppliers";
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // btnCategories
             // 
@@ -218,48 +283,7 @@
             this.btnDashboard.Size = new System.Drawing.Size(240, 53);
             this.btnDashboard.TabIndex = 4;
             this.btnDashboard.Text = "Dashboard";
-            // 
-            // btnMaintenance
-            // 
-            this.btnMaintenance.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.btnMaintenance.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaintenance.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btnMaintenance.Appearance.Options.UseBackColor = true;
-            this.btnMaintenance.Appearance.Options.UseBorderColor = true;
-            this.btnMaintenance.Appearance.Options.UseFont = true;
-            this.btnMaintenance.Appearance.Options.UseForeColor = true;
-            this.btnMaintenance.Appearance.Options.UseTextOptions = true;
-            this.btnMaintenance.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.btnMaintenance.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMaintenance.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnMaintenance.Location = new System.Drawing.Point(0, 371);
-            this.btnMaintenance.Name = "btnMaintenance";
-            this.btnMaintenance.Size = new System.Drawing.Size(240, 53);
-            this.btnMaintenance.TabIndex = 6;
-            this.btnMaintenance.Text = "Maintenance";
-            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
-            // 
-            // btnSupplier
-            // 
-            this.btnSupplier.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.btnSupplier.Appearance.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupplier.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btnSupplier.Appearance.Options.UseBackColor = true;
-            this.btnSupplier.Appearance.Options.UseBorderColor = true;
-            this.btnSupplier.Appearance.Options.UseFont = true;
-            this.btnSupplier.Appearance.Options.UseForeColor = true;
-            this.btnSupplier.Appearance.Options.UseTextOptions = true;
-            this.btnSupplier.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.btnSupplier.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSupplier.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image1")));
-            this.btnSupplier.Location = new System.Drawing.Point(0, 212);
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(240, 53);
-            this.btnSupplier.TabIndex = 7;
-            this.btnSupplier.Text = "Suppliers";
-            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
+            this.btnDashboard.Visible = false;
             // 
             // Main
             // 
@@ -296,6 +320,7 @@
         public System.Windows.Forms.Panel pnlBody;
         private DevExpress.XtraEditors.SimpleButton btnMaintenance;
         private DevExpress.XtraEditors.SimpleButton btnSupplier;
+        private DevExpress.XtraEditors.SimpleButton btnConfig;
     }
 }
 

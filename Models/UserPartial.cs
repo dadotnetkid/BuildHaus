@@ -34,6 +34,18 @@ namespace Models
             }
             set => _userRole = value;
         }
+        private string _userLevel;
+
+        public string UserLevel
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_userLevel))
+                    _userLevel = UserRoles.FirstOrDefault()?.Name;
+                return _userLevel;
+            }
+            set { _userLevel = value; }
+        }
 
         [NotMapped]
         public string Password { get; set; }
