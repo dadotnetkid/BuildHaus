@@ -42,7 +42,8 @@ namespace Win
 
                 if (e.Row is Customers item)
                 {
-
+                    if (!User.UserIsInRoles("Manager"))
+                        return;
                     if (MessageBox.Show("Do you want to submit this?", "Submit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         return;
                     UnitOfWork unitOfWork = new UnitOfWork();

@@ -12,6 +12,7 @@ using Helpers;
 using Models;
 using Models.Repository;
 using Models.ViewModels;
+using Win.rpt;
 
 namespace Win
 {
@@ -141,6 +142,17 @@ namespace Win
         {
             try
             {
+                if (InventoryGridView.RowCount > 0)
+                {
+                    if (Application.OpenForms["Main"] is Main frm)
+                    {
+                        frm.pnlBody.Controls.Clear();
+                        frm.pnlBody.Controls.Add(new UCSales()
+                        {
+                            Dock = DockStyle.Fill
+                        });
+                    }
+                }
                 UnitOfWork unitOfWork = new UnitOfWork();
                 var id = unitOfWork.InventoryRepo.Fetch().Select(x => new { x.Id, x.TransactionNumber }).OrderByDescending(x => x.Id).FirstOrDefault();
                 this.transactionNumber = new IdHelper().GenerateIdNumber(id?.TransactionNumber);
@@ -154,7 +166,9 @@ namespace Win
                 btnNew.Enabled = false;
                 btnEnd.Enabled = true;
                 btnCancel.Enabled = true;
+                btnPrint.Enabled = false;
                 pnlTransaction.Enabled = true;
+
                 txtSearch.Focus();
             }
             catch (Exception e)
@@ -177,18 +191,14 @@ namespace Win
                     i.TransactionType = Transaction.OUT.ToInt();
                 }
                 unitOfWork.Save();
-                if (Application.OpenForms["Main"] is Main frm)
-                {
-                    frm.pnlBody.Controls.Clear();
-                    frm.pnlBody.Controls.Add(new UCSales()
-                    {
-                        Dock = DockStyle.Fill
-                    });
-                }
+
                 btnNew.Enabled = true;
+                btnPrint.Enabled = true;
                 btnEnd.Enabled = false;
                 btnCancel.Enabled = false;
+
                 pnlTransaction.Enabled = false;
+
             }
             catch (Exception e)
             {
@@ -262,6 +272,26 @@ namespace Win
                     unitOfWork.Save();
                     Init();
                 }
+            }
+            catch (Exception exception)
+            {
+
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UnitOfWork unitOfWork = new UnitOfWork();
+                var res = unitOfWork.InventoryRepo.Get(x => x.TransactionNumber == transactionNumber);
+                frmReportViewer frmReportViewer = new frmReportViewer(
+                    new rptPrintReceipt()
+                    {
+                        DataSource = res
+                    });
+                frmReportViewer.ShowDialog();
+
             }
             catch (Exception exception)
             {

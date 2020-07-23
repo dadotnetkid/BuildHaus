@@ -40,6 +40,8 @@ namespace Win
             {
                 if (e.Row is Categories item)
                 {
+                    if (!User.UserIsInRoles("Manager"))
+                        return;
                     UnitOfWork unitOfWork = new UnitOfWork();
                     if (item.Id == 0)
                     {

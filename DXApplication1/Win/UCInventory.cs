@@ -42,6 +42,8 @@ namespace Win
         {
             if (InventoryGridView.GetRow(e.RowHandle) is Inventory item)
             {
+                if (!User.UserIsInRoles("Manager"))
+                    return;
                 UnitOfWork unitOfWork = new UnitOfWork();
                 if (item.SN != null)
                 {
@@ -68,7 +70,8 @@ namespace Win
                 UnitOfWork unitOfWork = new UnitOfWork();
                 if (e.Row is Inventory item)
                 {
-
+                    if (!User.UserIsInRoles("Manager"))
+                        return;
                     if (MessageBox.Show("Do you want to submit this?", "Submit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         return;
                     if (item.Id == 0)
@@ -96,7 +99,8 @@ namespace Win
             {
                 if (InventoryGridView.GetFocusedRow() is Inventory item)
                 {
-
+                    if (!User.UserIsInRoles("Manager"))
+                        return;
                     if (MessageBox.Show("Do you want to delete this?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         return;
                     UnitOfWork unitOfWork = new UnitOfWork();

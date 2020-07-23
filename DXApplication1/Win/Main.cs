@@ -97,6 +97,11 @@ namespace Win
                     {
                         item.btnSubmit.PerformClick();
                     }
+
+                    if (keyData == Keys.F6 && item.transactionNumber != null)
+                    {
+                        item.btnPrint.PerformClick();
+                    }
                 }
             return base.ProcessCmdKey(ref msg, keyData);
         }

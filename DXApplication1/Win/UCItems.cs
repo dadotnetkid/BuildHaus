@@ -40,6 +40,7 @@ namespace Win.Itms
                 this.ItemsGridControl.DataSource = new BindingList<Items>(unitOfWork.ItemsRepo.Get());
                 this.cboCategoryRepo.DataSource = unitOfWork.CategoriesRepo.Get();
                 this.suppliersBindingSource.DataSource = unitOfWork.SuppliersRepo.Get();
+                
             }
             catch (Exception e)
             {
@@ -88,6 +89,8 @@ namespace Win.Itms
         {
             try
             {
+                if (!User.UserIsInRoles("Manager"))
+                    return;
                 if (e.Row is Items item)
                 {
 

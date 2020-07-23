@@ -46,8 +46,10 @@
             this.colORNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cboCategoryRepo = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.cboTransactionType = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.btnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.pnlTransaction = new System.Windows.Forms.Panel();
             this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
             this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
@@ -57,11 +59,10 @@
             this.txtCustomer = new DevExpress.XtraEditors.LookUpEdit();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnEnd = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
-            this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InventoryGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InventoryGridView)).BeginInit();
@@ -69,13 +70,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCategoryRepo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTransactionType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             this.pnlTransaction.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -201,6 +202,12 @@
             this.colTotalAmount.Visible = true;
             this.colTotalAmount.VisibleIndex = 4;
             // 
+            // colDelete
+            // 
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Visible = true;
+            this.colDelete.VisibleIndex = 5;
+            // 
             // cboCategoryRepo
             // 
             this.cboCategoryRepo.AutoHeight = false;
@@ -223,6 +230,15 @@
             this.cboTransactionType.Name = "cboTransactionType";
             this.cboTransactionType.NullText = "";
             this.cboTransactionType.ValueMember = "Type";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
             // 
             // pnlTransaction
             // 
@@ -330,6 +346,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnPrint);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnEnd);
             this.panel2.Controls.Add(this.btnNew);
@@ -339,6 +356,21 @@
             this.panel2.Size = new System.Drawing.Size(1318, 63);
             this.panel2.TabIndex = 4;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPrint.Enabled = false;
+            this.btnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.ImageOptions.Image")));
+            this.btnPrint.Location = new System.Drawing.Point(912, 0);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(273, 63);
+            this.btnPrint.TabIndex = 6;
+            this.btnPrint.Text = "&Print(F6)";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // btnCancel
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -346,10 +378,10 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnCancel.Enabled = false;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(854, 0);
+            this.btnCancel.Location = new System.Drawing.Point(659, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(427, 63);
+            this.btnCancel.Size = new System.Drawing.Size(253, 63);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "&Cancel(F5)";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -364,7 +396,7 @@
             this.btnEnd.Location = new System.Drawing.Point(427, 0);
             this.btnEnd.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(427, 63);
+            this.btnEnd.Size = new System.Drawing.Size(232, 63);
             this.btnEnd.TabIndex = 4;
             this.btnEnd.Text = "&End(F4)";
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
@@ -382,21 +414,6 @@
             this.btnNew.Text = "&New(F3)";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // colDelete
-            // 
-            this.colDelete.Name = "colDelete";
-            this.colDelete.Visible = true;
-            this.colDelete.VisibleIndex = 5;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
-            // 
             // UCSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,6 +429,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboCategoryRepo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTransactionType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             this.pnlTransaction.ResumeLayout(false);
             this.pnlTransaction.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
@@ -419,7 +437,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCustomer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -453,5 +470,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraGrid.Columns.GridColumn colDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDelete;
+        public DevExpress.XtraEditors.SimpleButton btnPrint;
     }
 }
